@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaitlyn Ooi — Film</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  main { position: relative; z-index: 1; }
+
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    gap: 3rem; padding: 4.5rem 3rem 5rem; max-width: 1140px; margin: 0 auto;
+  }
+  .hero-text { display: flex; flex-direction: column; justify-content: center; }
+  .hero-tag { font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.1rem; }
+  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 500; line-height: 1.05; margin-bottom: 0.7rem; }
+  .hero-name em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .hero-roles { display: flex; flex-direction: column; gap: 0.15rem; margin-bottom: 1.3rem; }
+  .hero-roles span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: var(--text); opacity: 0.75; }
+  .hero-desc { max-width: 440px; font-size: 0.78rem; color: var(--muted); line-height: 1.95; }
+  .hero-photo-wrap { display: flex; justify-content: center; }
+  .hero-photo { width: 320px; max-width: 100%; display: block; border: 1px solid var(--border-strong); }
+
+  .section-wrap { max-width: 1140px; margin: 0 auto; padding: 4.5rem 3rem; }
+  .section-full { background: var(--bg-alt); }
+  .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.6rem; }
+  .section-label span { font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 260px; }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+
+  .card { background: var(--bg); overflow: hidden; transition: background 0.25s; }
+  .section-full .card { background: var(--bg-alt); }
+  .card:hover { background: var(--surface); }
+
+  .video-wrap { position: relative; padding-bottom: 56.25%; background: #1c1712; }
+  .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+  .cover-wrap { width: 100%; height: 200px; overflow: hidden; }
+  .cover-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .card-body { padding: 1.5rem 1.6rem; }
+  .card-body .tag { margin-bottom: 0.8rem; }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.35; }
+  .card-desc { font-size: 0.73rem; color: var(--muted); line-height: 1.9; }
+
+  .card-body .btn, .card-body .btn-ghost { margin-top: 1.1rem; padding: 0.5rem 1.1rem; font-size: 0.6rem; }
+  .btn-ghost { display: inline-flex; align-items: center; font-family: 'DM Mono', monospace; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--accent); border: 1px solid var(--accent-line); transition: border-color 0.2s, background 0.2s; }
+  .btn-ghost:hover { background: var(--accent-soft); }
+
+  .insta-card { background: var(--bg); display: flex; flex-direction: column; }
+  .section-full .insta-card { background: var(--bg-alt); }
+  .insta-preview { background: var(--surface); height: 190px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; border-bottom: 1px solid var(--border); }
+  .insta-icon { width: 46px; height: 46px; }
+  .insta-preview p { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em; }
+  .insta-foot { padding: 1.1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+
+  /* BTS strip — plain scroll instead of infinite-loop marquee (real files, not inline base64) */
+  #bts { padding: 4.5rem 0; overflow: hidden; }
+  .bts-header { max-width: 1140px; margin: 0 auto 2rem; padding: 0 3rem; }
+  .bts-header .section-label { margin-bottom: 0; }
+  .bts-viewport { overflow-x: auto; padding: 0 3rem 0.5rem; scrollbar-width: thin; }
+  .bts-track { display: flex; gap: 16px; width: max-content; }
+  .bts-item { flex-shrink: 0; height: 300px; overflow: hidden; border: 1px solid var(--border); }
+  .bts-item img { height: 100%; width: auto; display: block; object-fit: cover; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; text-align: center; gap: 2rem; padding-top: 3rem; }
+    .hero-roles { align-items: center; }
+    .hero-desc { margin: 0 auto; }
+    .hero-photo-wrap { order: -1; }
+    .hero-photo { width: 220px; }
+    .bts-item { height: 200px; }
+  }
+  @media (max-width: 680px) {
+    .section-wrap { padding: 3rem 1.5rem; }
+    .bts-header, .bts-viewport { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <nav class="site-nav">
+    <a class="nav-name" href="../index.html">Kaitlyn Ooi</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html" class="active">Film</a></li>
+      <li><a href="../engineering/index.html">Engineering</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-text">
+      <p class="hero-tag">USC &middot; Los Angeles &middot; 2025&ndash;2028</p>
+      <h1 class="hero-name">Kaitlyn <em>Ooi</em></h1>
+      <div class="hero-roles">
+        <span>Director</span>
+        <span>Screenwriter</span>
+        <span>Producer</span>
+      </div>
+      <p class="hero-desc">Capturing compelling narratives through motion pictures, screenwriting, and dynamic media. Bridging raw creative artistry with targeted digital audience engagement.</p>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="assets/portrait.png" alt="Kaitlyn Ooi on set">
+    </div>
+  </div>
+
+  <section id="films">
+    <div class="section-wrap">
+      <div class="section-label"><span>Short Films</span></div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="video-wrap"><iframe src="https://www.youtube.com/embed/Yj2dKgGb8EE" allowfullscreen loading="lazy" title="Before I Do, Where Are You?"></iframe></div>
+          <div class="card-body">
+            <span class="tag">Director &middot; Writer &middot; Editor</span>
+            <h3 class="card-title">Before I Do, Where Are You?</h3>
+            <p class="card-desc">A narrative exploration of relationship dynamics, timing, and emotional crossroads. Selangor, Malaysia — December 2024.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="video-wrap"><iframe src="https://www.youtube.com/embed/3CW5lXnyHcQ" allowfullscreen loading="lazy" title="Under The Moon"></iframe></div>
+          <div class="card-body">
+            <span class="tag">Producer &middot; APCA Fall Short</span>
+            <h3 class="card-title">Under The Moon</h3>
+            <p class="card-desc">An atmospheric short built around mood, lighting, and intimate nocturnal themes. Los Angeles — 2025&ndash;2026.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cover-wrap"><img src="assets/struggle-cover.png" alt="Struggle cover" class="cover-img"></div>
+          <div class="card-body">
+            <span class="tag">Director &middot; Writer &middot; Editor</span>
+            <h3 class="card-title">Struggle</h3>
+            <p class="card-desc">A personal short film centred on mental health and self-reflection. Penang, Malaysia — May 2023.</p>
+            <a href="https://drive.google.com/file/d/1fpxOYFjVT3yZ2nbt-XW9XkvRWFJANyi6/view?usp=sharing" target="_blank" class="btn-ghost">Watch Film &#8599;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="video-wrap"><iframe src="https://drive.google.com/file/d/1aMt2kONVKw2sLHfD795IePAZv-JpIACP/preview" allowfullscreen allow="autoplay" loading="lazy" title="VSA Marketing Short"></iframe></div>
+          <div class="card-body">
+            <span class="tag">Producer &middot; APCA Intern Project</span>
+            <h3 class="card-title">VSA Marketing Short</h3>
+            <p class="card-desc">Led a team of three interns producing a marketing video for VSA, overseeing execution and post-production. Los Angeles — March 2026.</p>
+            <a href="https://drive.google.com/file/d/1aMt2kONVKw2sLHfD795IePAZv-JpIACP/view?usp=sharing" target="_blank" class="btn-ghost">Open full file &#8599;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cover-wrap"><img src="assets/lovedrug-cover.png" alt="Love is like a Drug cover" class="cover-img"></div>
+          <div class="card-body">
+            <span class="tag">Writer &middot; Associate Producer &middot; LGBTQ+</span>
+            <h3 class="card-title">Love is like a Drug</h3>
+            <p class="card-desc">An LGBTQ+ short film developed from concept through production — exploring infatuation and psychological dependency. Los Angeles — December 2025&ndash;Present.</p>
+            <a href="https://drive.google.com/file/d/1ExbKcn8vmU_xiXj9OahTbTa7_Y8BGNvT/view?usp=sharing" target="_blank" class="btn-ghost">Watch Film &#8599;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-full">
+    <section id="scripts">
+      <div class="section-wrap">
+        <div class="section-label"><span>Screenwriting</span></div>
+        <div class="grid-2">
+          <div class="card"><div class="card-body"><span class="tag">Short Script</span><h3 class="card-title">Before I Do, Where Are You?</h3><p class="card-desc">Companion screenplay with precise pacing, structural dialogue, and clear cinematic cues rooted in themes of love and humor.</p><a href="https://docs.google.com/document/d/1HqqR-2o9ai-iPGKRPOX5IsAOKEXzw1jWrKbXiihLWf8/edit?usp=sharing" target="_blank" class="btn-ghost">Read Screenplay</a></div></div>
+          <div class="card"><div class="card-body"><span class="tag">Short Script &middot; LGBTQ+</span><h3 class="card-title">Love is like a Drug</h3><p class="card-desc">A gritty, metaphorical exploration of infatuation, psychological dependency, and the highs and lows of complex relationships.</p><a href="https://docs.google.com/document/d/1tJ4PA1XgctZUWh0rdG5ugab-y1kSPIHISgFNs52nc8o/edit?usp=sharing" target="_blank" class="btn-ghost">Read Screenplay</a></div></div>
+          <div class="card"><div class="card-body"><span class="tag">Short Script</span><h3 class="card-title">熱帶雨林</h3><p class="card-desc">A screenplay exploring the lush tension and quiet emotion woven through tropical landscapes and the lives within them.</p><a href="https://docs.google.com/document/d/12l-bYfgtZTInh7qD09bJUQlLMQA2M7RaO7ig275lZDg/edit?usp=sharing" target="_blank" class="btn-ghost">Read Screenplay</a></div></div>
+          <div class="card"><div class="card-body"><span class="tag">Short Script</span><h3 class="card-title">爺爺</h3><p class="card-desc">A tender, intimate portrait of memory, generational bonds, and the quiet language shared between a grandchild and grandfather.</p><a href="https://docs.google.com/document/d/11pd9-HjU-iA1ewTidnTUF8AYp0tLeSNV/edit?usp=sharing&ouid=115761864943410616735&rtpof=true&sd=true" target="_blank" class="btn-ghost">Read Screenplay</a></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="photography">
+    <div class="section-wrap">
+      <div class="section-label"><span>Photography</span></div>
+      <div class="grid-2">
+        <div class="insta-card">
+          <div class="insta-preview">
+            <svg class="insta-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="40" height="40" rx="12" stroke="#a26b46" stroke-width="2.5"/><circle cx="24" cy="24" r="9" stroke="#a26b46" stroke-width="2.5"/><circle cx="35" cy="13" r="2.5" fill="#a26b46"/></svg>
+            <p>View on Instagram</p>
+          </div>
+          <div class="insta-foot"><span class="tag" style="margin:0;">Cinematic Framing</span><a href="https://www.instagram.com/p/C420_LHvMsB/" target="_blank" class="btn-ghost" style="margin:0;padding:0.4rem 1rem;">Open &#8599;</a></div>
+        </div>
+        <div class="insta-card">
+          <div class="insta-preview">
+            <svg class="insta-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="40" height="40" rx="12" stroke="#a26b46" stroke-width="2.5"/><circle cx="24" cy="24" r="9" stroke="#a26b46" stroke-width="2.5"/><circle cx="35" cy="13" r="2.5" fill="#a26b46"/></svg>
+            <p>View on Instagram</p>
+          </div>
+          <div class="insta-foot"><span class="tag" style="margin:0;">Mood &amp; Shadow</span><a href="https://www.instagram.com/p/C1gcOUavWOg/" target="_blank" class="btn-ghost" style="margin:0;padding:0.4rem 1rem;">Open &#8599;</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-full">
+    <section id="marketing">
+      <div class="section-wrap">
+        <div class="section-label"><span>Digital Strategy</span></div>
+        <div class="grid-3">
+          <div class="card"><div class="card-body"><span class="tag">Instagram Management</span><h3 class="card-title">SAE Sunway</h3><p class="card-desc">Student community curation, event promotion, and consistent audience engagement. Grew participation by 30%.</p><a href="https://www.instagram.com/saesunway/" target="_blank" class="btn-ghost">Launch Channel &#8599;</a></div></div>
+          <div class="card"><div class="card-body"><span class="tag">LinkedIn Branding</span><h3 class="card-title">Collegizer</h3><p class="card-desc">B2B marketing, corporate identity optimization, and strategic networking assets for a VC-backed EdTech startup.</p><a href="http://linkedin.com/company/collegizer" target="_blank" class="btn-ghost">Launch Page &#8599;</a></div></div>
+          <div class="card"><div class="card-body"><span class="tag">Xiaohongshu &middot; 小红书</span><h3 class="card-title">Lifestyle Curation</h3><p class="card-desc">Visual algorithm-driven layout design, localized trending content, and platform-native creative assets.</p><a href="https://xhslink.com/m/8mzGYTNaeEK" target="_blank" class="btn-ghost">Launch Account &#8599;</a></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="bts">
+    <div class="bts-header">
+      <div class="section-label"><span>Behind the Scenes — APCA Fall Short</span></div>
+    </div>
+    <div class="bts-viewport">
+      <div class="bts-track">
+        <div class="bts-item"><img src="assets/bts-1.jpg" alt="Behind the scenes, part 1"></div>
+        <div class="bts-item"><img src="assets/bts-2.jpg" alt="Behind the scenes, part 2"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Kaitlyn Ooi &nbsp;&middot;&nbsp; <a href="mailto:kaitlyno@usc.edu">kaitlyno@usc.edu</a> &nbsp;&middot;&nbsp; Los Angeles, CA</p>
+  <ul class="footer-links">
+    <li><a href="../index.html">Home</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>

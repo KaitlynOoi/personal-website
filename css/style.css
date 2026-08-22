@@ -1,0 +1,157 @@
+/* ============================================================
+   Kaitlyn Ooi — shared theme
+   Neutral beige / warm paper palette, one accent, no gradients.
+   ============================================================ */
+
+:root {
+  --bg:        #f3ece0;
+  --bg-alt:    #ece2cf;
+  --surface:   #ece3d2;
+  --border:    rgba(41, 33, 22, 0.13);
+  --border-strong: rgba(41, 33, 22, 0.28);
+  --text:      #2a2115;
+  --muted:     rgba(42, 33, 21, 0.58);
+  --muted-2:   rgba(42, 33, 21, 0.4);
+  --accent:    #a26b46;
+  --accent-soft: rgba(162, 107, 70, 0.1);
+  --accent-line: rgba(162, 107, 70, 0.35);
+}
+
+* , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* subtle paper grain — texture, not a gradient */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+a { color: inherit; }
+
+/* ---------- Nav ---------- */
+nav.site-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+
+.nav-links a {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--accent); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.6rem;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  background: transparent;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  cursor: pointer;
+}
+
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn.primary {
+  border-color: var(--accent);
+  color: var(--bg);
+  background: var(--accent);
+}
+
+.btn.primary:hover { background: transparent; color: var(--accent); }
+
+.btn svg {
+  width: 12px; height: 12px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ---------- Tags ---------- */
+.tag {
+  display: inline-block;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  padding: 0.28rem 0.7rem;
+}
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--border);
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+footer.site-footer p { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--muted); }
+
+.footer-links { display: flex; gap: 1.5rem; list-style: none; }
+.footer-links a {
+  font-size: 0.65rem; letter-spacing: 0.1em;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  nav.site-nav, footer.site-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .nav-links { gap: 1.1rem; }
+}
