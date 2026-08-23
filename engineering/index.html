@@ -18,9 +18,27 @@
   .proj-section-label span { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
   .proj-section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 300px; }
 
+  /* ---- centered intro: links + tech skills ---- */
+  .eng-intro { padding: 3.5rem 3rem 2.8rem; text-align: center; border-bottom: 1px solid var(--border); }
+
+  .eng-links { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 2.6rem; }
+  .eng-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    border: 1px solid var(--border-strong); padding: 0.65rem 1.3rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .eng-link:hover { border-color: var(--accent); color: var(--accent); }
+  .eng-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+
+  .skills-strip { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+  .skill-label { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .skill-list { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; line-height: 1.8; }
+
   .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
@@ -69,6 +87,37 @@
       <li><a href="../blog/index.html">Blog</a></li>
     </ul>
   </nav>
+
+  <div class="eng-intro">
+    <div class="eng-links">
+      <a class="eng-link" href="https://github.com/KaitlynOoi" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a class="eng-link" href="https://www.linkedin.com/in/kaitlyn-ooi/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3a2 2 0 1 1 4 0v3M12 13v3"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="skills-strip">
+      <div>
+        <p class="skill-label">Languages</p>
+        <p class="skill-list">C / C++<br>JavaScript<br>SQL</p>
+      </div>
+      <div>
+        <p class="skill-label">Web</p>
+        <p class="skill-list">React<br>Node.js / Express<br>HTML / CSS</p>
+      </div>
+      <div>
+        <p class="skill-label">Hardware</p>
+        <p class="skill-list">Arduino<br>BLE / I&sup2;C<br>MAX30102 &middot; VL53L0X &middot; HTS221</p>
+      </div>
+      <div>
+        <p class="skill-label">Tools</p>
+        <p class="skill-list">Docker<br>MySQL<br>Git</p>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== Embedded Systems ===== -->
   <section id="embedded" class="proj-section-wrap">
@@ -129,7 +178,7 @@
   </section>
 
   <!-- ===== Software Engineering ===== -->
-  <section id="swe" class="proj-section-wrap alt">
+  <section id="swe" class="proj-section-wrap">
     <div class="proj-section-label"><span>Software Engineering</span></div>
     <div class="projects">
 

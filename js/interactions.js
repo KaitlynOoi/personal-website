@@ -66,7 +66,7 @@
     var timer = null;
     function startAuto() {
       if (reduceMotion || total < 2) return;
-      timer = setInterval(function () { go(1); }, 4000);
+      timer = setInterval(function () { go(1); }, 3000);
     }
     function stopAuto() {
       if (timer) { clearInterval(timer); timer = null; }
