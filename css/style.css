@@ -133,27 +133,62 @@ nav.site-nav {
   padding: 0.28rem 0.7rem;
 }
 
+/* ---------- Let's Connect ---------- */
+.connect {
+  position: relative;
+  z-index: 2;
+  padding: 3.5rem 3rem 3rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.connect-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.6rem;
+}
+
+.connect-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.connect-icon {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border-strong);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, border-style 0.2s;
+}
+
+.connect-icon:hover {
+  border-color: var(--accent);
+  border-style: solid;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.connect-icon svg {
+  width: 20px; height: 20px;
+  stroke: currentColor; fill: none; stroke-width: 1.6;
+}
+
 /* ---------- Footer ---------- */
 footer.site-footer {
   position: relative;
   z-index: 2;
-  border-top: 1px solid var(--border);
-  padding: 2rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  padding: 1.6rem 3rem;
+  text-align: center;
 }
 
 footer.site-footer p { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--muted); }
-
-.footer-links { display: flex; gap: 1.5rem; list-style: none; }
-.footer-links a {
-  font-size: 0.65rem; letter-spacing: 0.1em;
-  color: var(--muted); text-decoration: none; transition: color 0.2s;
-}
-.footer-links a:hover { color: var(--accent); }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(14px); }
@@ -166,6 +201,8 @@ footer.site-footer p { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--m
 }
 
 @media (max-width: 640px) {
-  nav.site-nav, footer.site-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+  nav.site-nav, footer.site-footer, .connect { padding-left: 1.5rem; padding-right: 1.5rem; }
   .nav-links { gap: 1.1rem; }
+  .connect-icon { width: 46px; height: 46px; }
+  .connect-icons { gap: 0.7rem; }
 }
