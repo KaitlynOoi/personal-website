@@ -149,7 +149,7 @@ footer.site-footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: var(--m
 
 .footer-email {
   font-size: 0.68rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.2s;
