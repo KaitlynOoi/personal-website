@@ -29,20 +29,21 @@
   /* ---- photos ---- */
   .photos {
     display: flex;
-    gap: 0.9rem;
+    align-items: flex-start;
+    gap: 1.4rem;
   }
 
   .photo-frame {
     flex: 1;
     aspect-ratio: 3 / 4;
-    background: var(--surface);
-    border: 1px solid var(--border-strong);
     overflow: hidden;
   }
 
+  .photo-frame.offset { margin-top: 3rem; }
+
   .photo-frame img {
     width: 100%; height: 100%; object-fit: cover; display: block;
-    filter: saturate(0.82) sepia(0.08) contrast(0.96) brightness(1.02);
+    filter: saturate(0.85) sepia(0.1) contrast(0.94) brightness(1.03);
   }
 
   /* ---- intro copy ---- */
@@ -69,6 +70,7 @@
   @media (max-width: 860px) {
     .landing-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 0 1.5rem; text-align: center; }
     .photos { max-width: 320px; margin: 0 auto; }
+    .photo-frame.offset { margin-top: 1.5rem; }
     .intro-bio { margin-left: auto; margin-right: auto; }
   }
 </style>
@@ -92,7 +94,7 @@
       <div class="photo-frame">
         <img src="assets/photos/photo-1.jpg" alt="Kaitlyn at a USC SAE awards ceremony">
       </div>
-      <div class="photo-frame">
+      <div class="photo-frame offset">
         <img src="assets/photos/photo-2.jpg" alt="Kaitlyn on set holding a clapperboard">
       </div>
     </div>
