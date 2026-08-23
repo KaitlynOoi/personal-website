@@ -25,7 +25,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   line-height: 1.7;
   min-height: 100vh;
@@ -88,7 +88,7 @@ nav.site-nav {
 
 /* ---------- Buttons ---------- */
 .btn {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-size: 0.65rem;
   font-weight: 400;
   letter-spacing: 0.16em;
@@ -137,11 +137,24 @@ nav.site-nav {
 footer.site-footer {
   position: relative;
   z-index: 2;
-  padding: 1.6rem 3rem;
+  padding: 1.8rem 3rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
 }
 
-footer.site-footer p { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--muted); }
+footer.site-footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: var(--muted); }
+
+.footer-email {
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-email:hover { color: var(--accent); }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(14px); }
