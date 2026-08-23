@@ -26,24 +26,26 @@
     align-items: center;
   }
 
-  /* ---- photos ---- */
+  /* ---- photos ----
+     Cutouts are irregular shapes with mismatched native aspect ratios, so
+     instead of forcing both into identical boxes, size each to the same
+     share of the column width and bottom-align them -- reads like
+     they're standing together rather than floating at random sizes. */
   .photos {
     display: flex;
-    align-items: flex-start;
-    gap: 1.4rem;
+    align-items: flex-end;
+    gap: 0.75rem;
   }
 
   .photo-frame {
     flex: 1;
-    aspect-ratio: 3 / 4;
+    min-width: 0;
   }
 
-  .photo-frame.offset { margin-top: 3rem; }
-
-  /* Background-removed cutouts: natural color, no tint. object-fit:contain
-     so nothing at the edges (flowers, clapperboard) gets cropped off. */
   .photo-frame img {
-    width: 100%; height: 100%; object-fit: contain; display: block;
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* ---- intro copy ---- */
@@ -70,7 +72,6 @@
   @media (max-width: 860px) {
     .landing-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 0 1.5rem; text-align: center; }
     .photos { max-width: 320px; margin: 0 auto; }
-    .photo-frame.offset { margin-top: 1.5rem; }
     .intro-bio { margin-left: auto; margin-right: auto; }
   }
 </style>
@@ -94,7 +95,7 @@
       <div class="photo-frame">
         <img src="assets/photos/photo-1.png" alt="Kaitlyn at a USC SAE awards ceremony">
       </div>
-      <div class="photo-frame offset">
+      <div class="photo-frame">
         <img src="assets/photos/photo-2.png" alt="Kaitlyn on set holding a clapperboard">
       </div>
     </div>
