@@ -57,6 +57,7 @@
     border: 1px solid var(--border-strong);
     padding: 10px 10px 34px;
     box-shadow: 0 18px 34px rgba(42, 33, 21, 0.14);
+    transition: box-shadow 0.2s ease-out;
   }
 
   .polaroid .frame {
@@ -86,8 +87,17 @@
   .placeholder-art svg { width: 30px; height: 30px; stroke: var(--accent); fill: none; stroke-width: 1.2; opacity: 0.75; }
   .placeholder-art span { font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
 
-  .p1 { width: 68%; height: 82%; top: 0; left: 0; z-index: 2; transform: rotate(-3deg); }
-  .p2 { width: 52%; height: 48%; bottom: -4%; right: -2%; z-index: 3; transform: rotate(4deg); }
+  .p1 {
+    width: 68%; height: 82%; top: 0; left: 0; z-index: 2;
+    transform: rotate(calc(-3deg + var(--tiltY, 0deg)));
+    transition: transform 0.2s ease-out;
+  }
+  .p2 {
+    width: 52%; height: 48%; bottom: -4%; right: -2%; z-index: 3;
+    transform: rotate(calc(4deg + var(--tiltY, 0deg)));
+    transition: transform 0.2s ease-out;
+  }
+  .polaroid:hover { box-shadow: 0 22px 40px rgba(42, 33, 21, 0.18); }
 
   /* ---- intro copy ---- */
   .intro { animation: fadeUp 0.7s 0.08s ease both; }
@@ -270,6 +280,25 @@
     </li>
   </ul>
 </footer>
+
+<script>
+  (function () {
+    var cluster = document.querySelector('.photo-cluster');
+    if (!cluster || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var polaroids = cluster.querySelectorAll('.polaroid');
+    cluster.addEventListener('mousemove', function (e) {
+      var rect = cluster.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width - 0.5;
+      polaroids.forEach(function (p) {
+        var strength = p.classList.contains('p2') ? 7 : 4;
+        p.style.setProperty('--tiltY', (x * strength).toFixed(2) + 'deg');
+      });
+    });
+    cluster.addEventListener('mouseleave', function () {
+      polaroids.forEach(function (p) { p.style.setProperty('--tiltY', '0deg'); });
+    });
+  })();
+</script>
 
 </body>
 </html>

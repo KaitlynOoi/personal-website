@@ -18,30 +18,31 @@
 
   .divider { margin: 0 3rem; border: none; border-top: 1px solid var(--border); }
 
-  .posts { padding: 2.5rem 3rem 4rem; max-width: 800px; display: flex; flex-direction: column; }
+  .posts { padding: 2.5rem 3rem 1rem; max-width: 800px; display: flex; flex-direction: column; }
 
   .post-row {
     display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem;
-    padding: 1.6rem 0; border-bottom: 1px solid var(--border);
-    text-decoration: none; color: var(--text); transition: opacity 0.2s;
+    padding: 1.8rem 0; border-bottom: 1px solid var(--border);
+    text-decoration: none; color: var(--text); transition: opacity 0.2s, padding-left 0.2s;
   }
-  .post-row:hover { opacity: 0.7; }
-  .post-row-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; }
+  .post-row:hover { opacity: 0.75; padding-left: 0.4rem; }
+  .post-row-main { display: flex; flex-direction: column; gap: 0.4rem; }
+  .post-row-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; }
+  .post-row-excerpt { font-size: 0.7rem; color: var(--muted); line-height: 1.7; max-width: 46ch; }
   .post-row-meta { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 
-  .empty-state {
-    padding: 3rem 0 1rem;
-    color: var(--muted);
-    font-size: 0.78rem;
-    line-height: 1.9;
+  .more-note {
+    padding: 2.5rem 3rem 4rem;
+    color: var(--muted-2);
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
     max-width: 460px;
   }
-  .empty-state span { color: var(--accent); }
 
   @media (max-width: 640px) {
-    .header, .divider, .posts { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .header, .divider, .posts, .more-note { padding-left: 1.5rem; padding-right: 1.5rem; }
     .divider { margin: 0; }
-    .post-row { flex-direction: column; gap: 0.3rem; }
+    .post-row { flex-direction: column; gap: 0.4rem; }
   }
 </style>
 </head>
@@ -52,32 +53,31 @@
     <a class="nav-name" href="../index.html">Kaitlyn Ooi</a>
     <ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
-      <li><a href="../film/index.html">Film</a></li>
       <li><a href="../engineering/index.html">Engineering</a></li>
+      <li><a href="../film/index.html">Film</a></li>
       <li><a href="index.html" class="active">Blog</a></li>
     </ul>
   </nav>
 
-  <div class="header">
+  <div class="header reveal">
     <p class="header-label">Essays &amp; Notes</p>
     <h1>Written <em>things</em></h1>
-    <p>Longer-form thoughts on building, filmmaking, school, and whatever else is worth writing down.</p>
+    <p>Longer-form writing — coursework, essays, and whatever else is worth putting down.</p>
   </div>
 
   <hr class="divider">
 
   <div class="posts">
-    <!--
-      Template row — duplicate this for every new post and point it at a new
-      file in blog/posts/. Copy blog/posts/example-post.html as a starting point.
-    -->
-    <a class="post-row" href="posts/example-post.html">
-      <span class="post-row-title">Starting this blog</span>
-      <span class="post-row-meta">Aug 2026</span>
+    <a class="post-row reveal" href="posts/early-childhood-literacy-and-college-admission.html">
+      <span class="post-row-main">
+        <span class="post-row-title">Early Childhood Literacy Exposure and Selective College Admission</span>
+        <span class="post-row-excerpt">On how storytelling ability — shaped years before anyone applies to college — quietly decides who gets in, and what closing that gap could look like.</span>
+      </span>
+      <span class="post-row-meta">Dec 2025 &middot; Writ 150</span>
     </a>
-
-    <p class="empty-state">More posts coming soon — <span>see blog/posts/example-post.html</span> in the repo for the template to copy when writing a new one.</p>
   </div>
+
+  <p class="more-note">More essays will be added here over time.</p>
 
 </main>
 
@@ -88,5 +88,6 @@
   </ul>
 </footer>
 
+<script src="../js/interactions.js" defer></script>
 </body>
 </html>
