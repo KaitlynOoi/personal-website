@@ -8,20 +8,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
   main.landing {
-    min-height: calc(100vh - var(--nav-h));
+    flex: 1;
     display: flex; align-items: center;
     position: relative; z-index: 1;
-    padding: 3rem 0;
+    padding: 1.75rem 0;
   }
 
   .landing-grid {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1220px;
     margin: 0 auto;
     padding: 0 3rem;
     display: grid;
-    grid-template-columns: minmax(220px, 300px) 1fr;
+    grid-template-columns: minmax(320px, 460px) 1fr;
     gap: 4.5rem;
     align-items: center;
   }
@@ -34,12 +40,10 @@
   .photos {
     display: flex;
     align-items: flex-end;
-    gap: 0.75rem;
   }
 
   .photo-frame {
-    flex: 1;
-    min-width: 0;
+    width: 260px;
   }
 
   .photo-frame img {
@@ -53,25 +57,26 @@
 
   .intro h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 500;
     line-height: 1.05;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.6rem;
   }
 
   .intro h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
 
   .intro-bio {
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     color: var(--muted);
-    max-width: 500px;
-    line-height: 1.9;
-    letter-spacing: 0.02em;
+    max-width: 560px;
+    line-height: 1.85;
+    letter-spacing: 0.01em;
   }
 
   @media (max-width: 860px) {
     .landing-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 0 1.5rem; text-align: center; }
-    .photos { max-width: 320px; margin: 0 auto; }
+    .photos { justify-content: center; }
+    .photo-frame { width: 220px; }
     .intro-bio { margin-left: auto; margin-right: auto; }
   }
 </style>
@@ -92,9 +97,6 @@
   <div class="landing-grid">
 
     <div class="photos">
-      <div class="photo-frame">
-        <img src="assets/photos/photo-1.png" alt="Kaitlyn at a USC SAE awards ceremony">
-      </div>
       <div class="photo-frame">
         <img src="assets/photos/photo-2.png" alt="Kaitlyn on set holding a clapperboard">
       </div>
