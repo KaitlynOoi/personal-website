@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kaitlyn Ooi — Blog</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <style>
   main { position: relative; z-index: 1; min-height: calc(100vh - 130px); }
@@ -18,7 +18,7 @@
 
   .divider { margin: 0 3rem; border: none; border-top: 1px solid var(--border); }
 
-  .posts { padding: 2.5rem 3rem 1rem; max-width: 800px; display: flex; flex-direction: column; }
+  .posts { padding: 2.5rem 3rem 4rem; max-width: 800px; display: flex; flex-direction: column; }
 
   .post-row {
     display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem;
@@ -31,16 +31,8 @@
   .post-row-excerpt { font-size: 0.7rem; color: var(--muted); line-height: 1.7; max-width: 46ch; }
   .post-row-meta { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 
-  .more-note {
-    padding: 2.5rem 3rem 4rem;
-    color: var(--muted-2);
-    font-size: 0.72rem;
-    letter-spacing: 0.03em;
-    max-width: 460px;
-  }
-
   @media (max-width: 640px) {
-    .header, .divider, .posts, .more-note { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .header, .divider, .posts { padding-left: 1.5rem; padding-right: 1.5rem; }
     .divider { margin: 0; }
     .post-row { flex-direction: column; gap: 0.4rem; }
   }
@@ -62,7 +54,6 @@
   <div class="header">
     <p class="header-label">Essays &amp; Notes</p>
     <h1>Written <em>things</em></h1>
-    <p>Coursework, essays, and other longer-form writing worth keeping around.</p>
   </div>
 
   <hr class="divider">
@@ -77,7 +68,6 @@
     </a>
   </div>
 
-  <p class="more-note">More essays will be added here over time.</p>
 
 </main>
 

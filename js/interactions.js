@@ -51,15 +51,32 @@
     }
 
     if (totalEl) totalEl.textContent = pad(total);
-    if (prevBtn) prevBtn.addEventListener('click', function () { go(-1); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { go(1); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { go(-1); stopAuto(); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { go(1); stopAuto(); startAuto(); });
 
     carousel.setAttribute('tabindex', '0');
     carousel.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') go(-1);
-      if (e.key === 'ArrowRight') go(1);
+      if (e.key === 'ArrowLeft') { go(-1); stopAuto(); startAuto(); }
+      if (e.key === 'ArrowRight') { go(1); stopAuto(); startAuto(); }
     });
 
+    // Auto-advance so it reads as a moving carousel, not a static image.
+    // Pauses on hover/focus and respects reduced-motion.
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timer = null;
+    function startAuto() {
+      if (reduceMotion || total < 2) return;
+      timer = setInterval(function () { go(1); }, 4000);
+    }
+    function stopAuto() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('focusin', stopAuto);
+    carousel.addEventListener('focusout', startAuto);
+
     render();
+    startAuto();
   });
 })();

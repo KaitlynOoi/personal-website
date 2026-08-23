@@ -5,11 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kaitlyn Ooi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-  body { height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
-  main.landing { flex: 1; display: flex; align-items: center; overflow: hidden; position: relative; z-index: 1; }
+  main.landing {
+    min-height: calc(100vh - var(--nav-h));
+    display: flex; align-items: center;
+    position: relative; z-index: 1;
+    padding: 3rem 0;
+  }
 
   .landing-grid {
     width: 100%;
@@ -36,7 +40,10 @@
     overflow: hidden;
   }
 
-  .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-frame img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: saturate(0.82) sepia(0.08) contrast(0.96) brightness(1.02);
+  }
 
   .photo-placeholder {
     width: 100%; height: 100%;
@@ -55,55 +62,23 @@
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 500;
     line-height: 1.05;
-    margin-bottom: 1rem;
+    margin-bottom: 1.4rem;
   }
 
   .intro h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
 
-  .intro-roles {
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1.6rem;
-  }
-  .intro-roles span { margin: 0 0.5rem; opacity: 0.45; }
-
   .intro-bio {
     font-size: 0.82rem;
     color: var(--muted);
-    max-width: 480px;
-    line-height: 1.85;
+    max-width: 500px;
+    line-height: 1.9;
     letter-spacing: 0.02em;
-    margin-bottom: 2rem;
   }
-
-  /* ---- section links ---- */
-  .sections {
-    display: flex;
-    gap: 2.2rem;
-    flex-wrap: wrap;
-    border-top: 1px solid var(--border);
-    padding-top: 1.4rem;
-  }
-
-  .section-link { text-decoration: none; color: var(--text); }
-  .section-link .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    font-weight: 500;
-    margin-bottom: 0.3rem;
-  }
-  .section-link:hover .section-title { color: var(--accent); }
-  .section-desc { font-size: 0.65rem; color: var(--muted); }
 
   @media (max-width: 860px) {
-    body { height: auto; overflow: auto; }
-    main.landing { padding: 3rem 0; }
     .landing-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 0 1.5rem; text-align: center; }
     .photos { max-width: 320px; margin: 0 auto; }
     .intro-bio { margin-left: auto; margin-right: auto; }
-    .sections { justify-content: center; }
   }
 </style>
 </head>
@@ -141,25 +116,9 @@
     <div class="intro">
       <p class="intro-label">Hi, I'm</p>
       <h1>Kaitlyn <em>Ooi</em></h1>
-      <p class="intro-roles">Engineer <span>/</span> Filmmaker <span>/</span> USC &rsquo;28</p>
       <p class="intro-bio">
-        I build things and I tell stories. Sometimes that's C and a soldering iron, sometimes it's a camera and a script. When I'm not doing either, I'm chasing good light for photos, restocking iced americanos, and dragging friends to watch questionable reality TV. This site is where both halves live.
+        I'm studying Electrical and Computer Engineering at the University of Southern California, with a minor in Cinematic Arts. I love building cool things, watching good films, exploring new places, and meeting people along the way. When I'm not working on a project, you'll probably find me hunting for coffee, hiking, planning a solo trip, or trying a new sport&mdash;most recently fencing and ice hockey.
       </p>
-
-      <div class="sections">
-        <a class="section-link" href="film/index.html">
-          <div class="section-title">Film</div>
-          <div class="section-desc">Shorts, scripts, BTS</div>
-        </a>
-        <a class="section-link" href="engineering/index.html">
-          <div class="section-title">Engineering</div>
-          <div class="section-desc">Code &amp; builds</div>
-        </a>
-        <a class="section-link" href="blog/index.html">
-          <div class="section-title">Blog</div>
-          <div class="section-desc">Essays &amp; notes</div>
-        </a>
-      </div>
     </div>
 
   </div>

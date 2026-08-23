@@ -15,6 +15,7 @@
   --accent:    #a26b46;
   --accent-soft: rgba(162, 107, 70, 0.1);
   --accent-line: rgba(162, 107, 70, 0.35);
+  --nav-h: 4.4rem;
 }
 
 * , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,8 +25,8 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'DM Mono', monospace;
-  font-weight: 300;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
   line-height: 1.7;
   min-height: 100vh;
 }
@@ -45,12 +46,16 @@ a { color: inherit; }
 
 /* ---------- Nav ---------- */
 nav.site-nav {
-  position: relative;
-  z-index: 2;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  min-height: var(--nav-h);
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.6rem 3rem;
+  padding: 0 3rem;
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
@@ -79,7 +84,7 @@ nav.site-nav {
 
 /* ---------- Buttons ---------- */
 .btn {
-  font-family: 'DM Mono', monospace;
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 0.65rem;
   font-weight: 400;
   letter-spacing: 0.16em;

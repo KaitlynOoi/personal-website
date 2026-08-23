@@ -5,76 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kaitlyn Ooi — Engineering</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <style>
   main { position: relative; z-index: 1; }
 
-  .hero {
-    padding: 4.5rem 3rem 3rem;
-    max-width: 900px;
-  }
-
-  .hero-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.4rem;
-  }
-
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.6rem, 6vw, 4.6rem);
-    font-weight: 500;
-    line-height: 1.08;
-    margin-bottom: 1.6rem;
-  }
-
-  .hero h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
-
-  .hero-sub {
-    font-size: 0.75rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 2.4rem;
-  }
-  .hero-sub span { display: inline-block; margin: 0 0.75rem; opacity: 0.4; }
-
-  .hero-bio {
-    font-size: 0.78rem;
-    color: var(--muted);
-    max-width: 520px;
-    line-height: 1.95;
-    letter-spacing: 0.02em;
-    margin-bottom: 2rem;
-  }
-
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-  .skills-strip {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 2rem 3rem;
-    display: flex;
-    gap: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .skill-label {
-    font-size: 0.58rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-  }
-
-  .skill-list { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; line-height: 1.8; }
-
   /* ---- project sections ---- */
   .proj-section-wrap { padding: 4rem 3rem; }
-  .proj-section-wrap.alt { background: var(--bg-alt); }
+  .proj-section-wrap:first-of-type { padding-top: 4.5rem; }
 
   .proj-section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.4rem; max-width: 960px; }
   .proj-section-label span { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
@@ -96,7 +34,6 @@
     gap: 1rem;
     transition: background 0.25s;
   }
-  .proj-section-wrap.alt .project-card { background: var(--bg-alt); }
   .project-card:hover { background: var(--surface); }
 
   .card-number { font-size: 0.6rem; letter-spacing: 0.2em; color: var(--accent); opacity: 0.8; }
@@ -116,7 +53,7 @@
   .card-link svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
   @media (max-width: 640px) {
-    .hero, .skills-strip, .proj-section-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .proj-section-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
   }
 </style>
 </head>
@@ -132,46 +69,6 @@
       <li><a href="../blog/index.html">Blog</a></li>
     </ul>
   </nav>
-
-  <div class="hero">
-    <p class="hero-label">Engineering Portfolio</p>
-    <h1>Code &amp; <em>circuits</em></h1>
-    <p class="hero-sub">
-      Full-Stack Development <span>/</span> Embedded Systems <span>/</span> Hardware
-    </p>
-    <p class="hero-bio">
-      Building across the stack — from Arduino sensors transmitting patient vitals over BLE, to full-stack web applications handling 40,000+ property listings, to low-level C embedded in microcontrollers. Comfortable at every layer.
-    </p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#embedded">
-        View Projects
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a class="btn" href="https://github.com/KaitlynOoi" target="_blank" rel="noopener">
-        GitHub
-        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      </a>
-    </div>
-  </div>
-
-  <div class="skills-strip">
-    <div>
-      <p class="skill-label">Languages</p>
-      <p class="skill-list">C / C++<br>JavaScript<br>SQL</p>
-    </div>
-    <div>
-      <p class="skill-label">Web</p>
-      <p class="skill-list">React<br>Node.js / Express<br>HTML / CSS</p>
-    </div>
-    <div>
-      <p class="skill-label">Hardware</p>
-      <p class="skill-list">Arduino<br>BLE / I&sup2;C<br>MAX30102 &middot; VL53L0X &middot; HTS221</p>
-    </div>
-    <div>
-      <p class="skill-label">Tools</p>
-      <p class="skill-list">Docker<br>MySQL<br>Git</p>
-    </div>
-  </div>
 
   <!-- ===== Embedded Systems ===== -->
   <section id="embedded" class="proj-section-wrap">
