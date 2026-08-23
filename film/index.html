@@ -60,21 +60,11 @@
     display: flex;
     gap: 16px;
     width: max-content;
-    animation: btsScroll 20s linear infinite;
+    will-change: transform;
   }
-  .bts-track:hover { animation-play-state: paused; }
 
   .bts-slide { flex-shrink: 0; border: 1px solid var(--border); overflow: hidden; line-height: 0; }
   .bts-slide img { height: 380px; width: auto; display: block; object-fit: cover; }
-
-  @keyframes btsScroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .bts-track { animation: none; }
-  }
 
   /* in-page sub-nav with scroll-spy, sits just below the sticky main nav */
   .sub-nav {
@@ -247,9 +237,11 @@
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Kaitlyn Ooi &nbsp;&middot;&nbsp; <a href="mailto:kaitlyno@usc.edu">kaitlyno@usc.edu</a> &nbsp;&middot;&nbsp; Los Angeles, CA</p>
+  <p>&copy; 2026 Kaitlyn Ooi &nbsp;&middot;&nbsp; Los Angeles, CA</p>
   <ul class="footer-links">
-    <li><a href="../index.html">Home</a></li>
+    <li><a href="tel:+12138274469">+1 213 827 4469</a></li>
+    <li><a href="tel:+60127250073">+60 12 725 0073</a></li>
+    <li><a href="mailto:ooikaitlyn1004@gmail.com">Email</a></li>
   </ul>
 </footer>
 
