@@ -26,10 +26,10 @@
     max-width: 1220px;
     margin: 0 auto;
     padding: 0 3rem;
-    display: grid;
-    grid-template-columns: minmax(280px, 380px) 1fr;
-    gap: 0.5cm;
+    display: flex;
+    justify-content: center;
     align-items: flex-start;
+    gap: 0.25cm;
   }
 
   /* ---- photos ----
@@ -74,7 +74,7 @@
   }
 
   @media (max-width: 860px) {
-    .landing-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 0 1.5rem; text-align: center; }
+    .landing-grid { flex-direction: column; align-items: center; gap: 1.5rem; padding: 0 1.5rem; text-align: center; }
     .photos { justify-content: center; }
     .photo-frame { width: 220px; }
     .intro-bio { margin-left: auto; margin-right: auto; }
