@@ -107,7 +107,7 @@
 
   .card-highlights { list-style: none; margin-top: 0.2rem; }
   .card-highlights li { font-size: 0.68rem; color: var(--muted); padding: 0.2rem 0 0.2rem 1rem; position: relative; }
-  .card-highlights li::before { content: '\2014'; position: absolute; left: 0; color: var(--accent); opacity: 0.6; font-size: 0.6rem; }
+  .card-highlights li::before { content: '-'; position: absolute; left: 0; color: var(--accent); opacity: 0.6; }
 
   .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--border); }
   .card-type { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
@@ -175,10 +175,10 @@
 
   <!-- ===== Embedded Systems ===== -->
   <section id="embedded" class="proj-section-wrap">
-    <div class="proj-section-label reveal"><span>Embedded Systems</span></div>
+    <div class="proj-section-label"><span>Embedded Systems</span></div>
     <div class="projects">
 
-      <article class="project-card reveal">
+      <article class="project-card">
         <span class="card-number">001</span>
         <h2 class="card-title">EE109 Embedded Systems</h2>
         <p class="card-desc">A semester of embedded systems labs and a capstone project written in C, exploring low-level hardware control including GPIO, PWM-driven buzzers, rotary encoders, and LED matrices.</p>
@@ -203,7 +203,7 @@
         </div>
       </article>
 
-      <article class="project-card reveal">
+      <article class="project-card">
         <span class="card-number">002</span>
         <h2 class="card-title">Medisense</h2>
         <p class="card-desc">A medical and health application designed to streamline patient-facing workflows. Built with a focus on accessibility, data clarity, and practical healthcare utility.</p>
@@ -233,10 +233,10 @@
 
   <!-- ===== Software Engineering ===== -->
   <section id="swe" class="proj-section-wrap alt">
-    <div class="proj-section-label reveal"><span>Software Engineering</span></div>
+    <div class="proj-section-label"><span>Software Engineering</span></div>
     <div class="projects">
 
-      <article class="project-card reveal">
+      <article class="project-card">
         <span class="card-number">001</span>
         <h2 class="card-title">LTspice Op-Amp Automation Tool</h2>
         <p class="card-desc">A Python automation pipeline that runs LTspice simulations in batch mode, dynamically swaps op-amp models, executes multiple testbenches, and extracts measurement results automatically from simulation logs.</p>
@@ -262,7 +262,7 @@
         </div>
       </article>
 
-      <article class="project-card reveal">
+      <article class="project-card">
         <span class="card-number">002</span>
         <h2 class="card-title">LTspice &rarr; QSpice Conversion Tool</h2>
         <p class="card-desc">A CLI + GUI tool that converts LTspice .asc schematics into QSpice-compatible .qsch files, then patches every known LTspice/QSpice incompatibility so the result actually simulates. Verified against real production circuits.</p>
@@ -287,7 +287,7 @@
         </div>
       </article>
 
-      <article class="project-card reveal">
+      <article class="project-card">
         <span class="card-number">003</span>
         <h2 class="card-title">Flighttrack</h2>
         <p class="card-desc">A self-hosted flight price monitor, deployed to a VPS and shared with friends. Runs a background scraper on a schedule, then alerts through a Telegram bot and a remote MCP server so anyone can ask Claude about their tracked flights.</p>
@@ -313,7 +313,7 @@
         </div>
       </article>
 
-      <article class="project-card reveal">
+      <article class="project-card">
         <span class="card-number">004</span>
         <h2 class="card-title">IDX Property Search</h2>
         <p class="card-desc">A full-stack real estate search application built during an internship. Handles a dataset of 40,000+ property listings with paginated browsing, advanced filtering, and open house scheduling.</p>
@@ -339,12 +339,12 @@
         </div>
       </article>
 
-      <article class="project-card reveal">
+      <article class="project-card">
         <span class="card-number">005</span>
         <h2 class="card-title">USC SMSA Website</h2>
-        <p class="card-desc">Designed and built the site for USC's Singapore-Malaysia Student Association — a community home page covering culture, events, and how to get involved, live on GitHub Pages.</p>
+        <p class="card-desc">Designed and built the site for USC's Singapore-Malaysia Student Association: a community home page covering culture, events, and how to get involved. Live on GitHub Pages.</p>
         <ul class="card-highlights">
-          <li>Responsive layout, no framework — plain HTML/CSS/JS</li>
+          <li>Responsive layout, built with plain HTML/CSS/JS, no framework</li>
           <li>Custom typography &amp; photo-driven hero section</li>
           <li>Deployed and live via GitHub Pages</li>
         </ul>
@@ -376,10 +376,5 @@
   </ul>
 </footer>
 
-<button class="to-top" aria-label="Back to top">
-  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
-
-<script src="../js/interactions.js" defer></script>
 </body>
 </html>

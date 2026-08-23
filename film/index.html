@@ -78,16 +78,10 @@
   .sub-nav a {
     font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--muted); text-decoration: none; padding: 0.9rem 1rem;
-    white-space: nowrap; position: relative; transition: color 0.2s;
-  }
-  .sub-nav a::after {
-    content: ''; position: absolute; left: 1rem; right: 1rem; bottom: 0; height: 2px;
-    background: var(--accent); transform: scaleX(0); transform-origin: left;
-    transition: transform 0.25s ease;
+    white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.2s;
   }
   .sub-nav a:hover { color: var(--text); }
-  .sub-nav a.active { color: var(--accent); }
-  .sub-nav a.active::after { transform: scaleX(1); }
+  .sub-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; text-align: center; gap: 2rem; padding-top: 3rem; }
@@ -144,7 +138,7 @@
 
   <section id="films">
     <div class="section-wrap">
-      <div class="section-label reveal"><span>Short Films</span></div>
+      <div class="section-label"><span>Short Films</span></div>
       <div class="grid-2">
         <div class="card">
           <div class="video-wrap"><iframe src="https://www.youtube.com/embed/Yj2dKgGb8EE" allowfullscreen loading="lazy" title="Before I Do, Where Are You?"></iframe></div>
@@ -196,7 +190,7 @@
   <div class="section-full">
     <section id="scripts">
       <div class="section-wrap">
-        <div class="section-label reveal"><span>Screenwriting</span></div>
+        <div class="section-label"><span>Screenwriting</span></div>
         <div class="grid-2">
           <div class="card"><div class="card-body"><span class="tag">Short Script</span><h3 class="card-title">Before I Do, Where Are You?</h3><p class="card-desc">Companion screenplay with precise pacing, structural dialogue, and clear cinematic cues rooted in themes of love and humor.</p><a href="https://docs.google.com/document/d/1HqqR-2o9ai-iPGKRPOX5IsAOKEXzw1jWrKbXiihLWf8/edit?usp=sharing" target="_blank" class="btn-ghost">Read Screenplay</a></div></div>
           <div class="card"><div class="card-body"><span class="tag">Short Script &middot; LGBTQ+</span><h3 class="card-title">Love is like a Drug</h3><p class="card-desc">A gritty, metaphorical exploration of infatuation, psychological dependency, and the highs and lows of complex relationships.</p><a href="https://docs.google.com/document/d/1tJ4PA1XgctZUWh0rdG5ugab-y1kSPIHISgFNs52nc8o/edit?usp=sharing" target="_blank" class="btn-ghost">Read Screenplay</a></div></div>
@@ -209,7 +203,7 @@
 
   <section id="photography">
     <div class="section-wrap">
-      <div class="section-label reveal"><span>Photography</span></div>
+      <div class="section-label"><span>Photography</span></div>
       <div class="grid-2">
         <div class="insta-card">
           <div class="insta-preview">
@@ -232,7 +226,7 @@
   <div class="section-full">
     <section id="marketing">
       <div class="section-wrap">
-        <div class="section-label reveal"><span>Digital Strategy</span></div>
+        <div class="section-label"><span>Digital Strategy</span></div>
         <div class="grid-3">
           <div class="card"><div class="card-body"><span class="tag">Instagram Management</span><h3 class="card-title">SAE Sunway</h3><p class="card-desc">Student community curation, event promotion, and consistent audience engagement. Grew participation by 30%.</p><a href="https://www.instagram.com/saesunway/" target="_blank" class="btn-ghost">Launch Channel &#8599;</a></div></div>
           <div class="card"><div class="card-body"><span class="tag">LinkedIn Branding</span><h3 class="card-title">Collegizer</h3><p class="card-desc">B2B marketing, corporate identity optimization, and strategic networking assets for a VC-backed EdTech startup.</p><a href="http://linkedin.com/company/collegizer" target="_blank" class="btn-ghost">Launch Page &#8599;</a></div></div>
@@ -244,7 +238,7 @@
 
   <section id="bts">
     <div class="bts-header">
-      <div class="section-label reveal"><span>Behind the Scenes — APCA Fall Short</span></div>
+      <div class="section-label"><span>Behind the Scenes — APCA Fall Short</span></div>
     </div>
     <div class="bts-viewport">
       <div class="bts-track">
@@ -262,10 +256,6 @@
     <li><a href="../index.html">Home</a></li>
   </ul>
 </footer>
-
-<button class="to-top" aria-label="Back to top">
-  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
 
 <script src="../js/interactions.js" defer></script>
 </body>
