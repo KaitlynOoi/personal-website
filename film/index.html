@@ -58,14 +58,26 @@
   .insta-preview p { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em; }
   .insta-foot { padding: 1.1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
 
-  /* BTS strip — plain scroll instead of infinite-loop marquee (real files, not inline base64) */
-  #bts { padding: 4.5rem 0; overflow: hidden; }
+  /* BTS carousel */
+  #bts { padding: 4.5rem 0; }
   .bts-header { max-width: 1140px; margin: 0 auto 2rem; padding: 0 3rem; }
   .bts-header .section-label { margin-bottom: 0; }
-  .bts-viewport { overflow-x: auto; padding: 0 3rem 0.5rem; scrollbar-width: thin; }
-  .bts-track { display: flex; gap: 16px; width: max-content; }
-  .bts-item { flex-shrink: 0; height: 300px; overflow: hidden; border: 1px solid var(--border); }
-  .bts-item img { height: 100%; width: auto; display: block; object-fit: cover; }
+
+  .bts-carousel { max-width: 1140px; margin: 0 auto; padding: 0 3rem; }
+  .bts-track-wrap { overflow: hidden; border: 1px solid var(--border); }
+  .bts-track { display: flex; transition: transform 0.35s ease; }
+  .bts-slide { flex: 0 0 100%; }
+  .bts-slide img { width: 100%; height: 420px; object-fit: cover; display: block; }
+
+  .bts-controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1.2rem; }
+  .bts-arrow {
+    width: 32px; height: 32px; border: 1px solid var(--border-strong); background: transparent;
+    display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .bts-arrow:hover { border-color: var(--accent); color: var(--accent); }
+  .bts-arrow svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+  .bts-counter { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--muted); min-width: 3.2rem; text-align: center; }
 
   /* in-page sub-nav with scroll-spy */
   .sub-nav {
@@ -89,13 +101,14 @@
     .hero-desc { margin: 0 auto; }
     .hero-photo-wrap { order: -1; }
     .hero-photo { width: 220px; }
-    .bts-item { height: 200px; }
+    .bts-slide img { height: 300px; }
   }
   @media (max-width: 680px) {
     .section-wrap { padding: 3rem 1.5rem; }
-    .bts-header, .bts-viewport { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .bts-header, .bts-carousel { padding-left: 1.5rem; padding-right: 1.5rem; }
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
     .sub-nav { padding: 0 1.5rem; }
+    .bts-slide img { height: 220px; }
   }
 </style>
 </head>
@@ -240,10 +253,21 @@
     <div class="bts-header">
       <div class="section-label"><span>Behind the Scenes — APCA Fall Short</span></div>
     </div>
-    <div class="bts-viewport">
-      <div class="bts-track">
-        <div class="bts-item"><img src="assets/bts-1.jpg" alt="Behind the scenes, part 1"></div>
-        <div class="bts-item"><img src="assets/bts-2.jpg" alt="Behind the scenes, part 2"></div>
+    <div class="bts-carousel">
+      <div class="bts-track-wrap">
+        <div class="bts-track">
+          <div class="bts-slide"><img src="assets/bts-1.jpg" alt="Behind the scenes, part 1"></div>
+          <div class="bts-slide"><img src="assets/bts-2.jpg" alt="Behind the scenes, part 2"></div>
+        </div>
+      </div>
+      <div class="bts-controls">
+        <button class="bts-arrow" data-dir="-1" aria-label="Previous photo">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="bts-counter"><span class="bts-current">01</span> / <span class="bts-total">02</span></span>
+        <button class="bts-arrow" data-dir="1" aria-label="Next photo">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </div>
   </section>
