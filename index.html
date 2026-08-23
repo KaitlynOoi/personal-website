@@ -36,27 +36,14 @@
   .photo-frame {
     flex: 1;
     aspect-ratio: 3 / 4;
-    overflow: hidden;
-    position: relative;
-    background: var(--text);
   }
 
   .photo-frame.offset { margin-top: 3rem; }
 
-  /* Duotone: remaps every photo into just the site's two tones (dark text
-     color -> light bg color) so any source photo matches the palette. */
+  /* Background-removed cutouts: natural color, no tint. object-fit:contain
+     so nothing at the edges (flowers, clapperboard) gets cropped off. */
   .photo-frame img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-    filter: grayscale(1) contrast(1.05);
-    mix-blend-mode: screen;
-  }
-
-  .photo-frame::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: var(--bg);
-    mix-blend-mode: multiply;
-    pointer-events: none;
+    width: 100%; height: 100%; object-fit: contain; display: block;
   }
 
   /* ---- intro copy ---- */
@@ -105,7 +92,7 @@
 
     <div class="photos">
       <div class="photo-frame">
-        <img src="assets/photos/photo-1.jpg" alt="Kaitlyn at a USC SAE awards ceremony">
+        <img src="assets/photos/photo-1.png" alt="Kaitlyn at a USC SAE awards ceremony">
       </div>
       <div class="photo-frame offset">
         <img src="assets/photos/photo-2.png" alt="Kaitlyn on set holding a clapperboard">
