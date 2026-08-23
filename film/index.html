@@ -25,10 +25,10 @@
   .section-label span { font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); }
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 260px; }
 
-  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
-  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
 
-  .card { background: var(--bg); overflow: hidden; transition: background 0.25s; }
+  .card { background: var(--bg); border: 1px solid var(--border); overflow: hidden; transition: background 0.25s; }
   .card:hover { background: var(--surface); }
 
   .video-wrap { position: relative; padding-bottom: 56.25%; background: #1c1712; }
@@ -45,35 +45,36 @@
   .btn-ghost { display: inline-flex; align-items: center; font-family: 'Source Sans 3', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--accent); border: 1px solid var(--accent-line); transition: border-color 0.2s, background 0.2s; }
   .btn-ghost:hover { background: var(--accent-soft); }
 
-  .insta-card { background: var(--bg); display: flex; flex-direction: column; }
+  .insta-card { background: var(--bg); border: 1px solid var(--border); display: flex; flex-direction: column; }
   .insta-preview { background: var(--surface); height: 190px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; border-bottom: 1px solid var(--border); }
   .insta-icon { width: 46px; height: 46px; }
   .insta-preview p { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em; }
   .insta-foot { padding: 1.1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
 
-  /* BTS carousel */
-  #bts { padding: 4.5rem 0; }
+  /* BTS -- continuous rolling strip, no pagination */
+  #bts { padding: 4.5rem 0; overflow: hidden; }
   .bts-header { max-width: 1140px; margin: 0 auto 2rem; padding: 0 3rem; }
   .bts-header .section-label { margin-bottom: 0; }
 
-  .bts-carousel { max-width: 1140px; margin: 0 auto; padding: 0 3rem; }
-  .bts-track-wrap { overflow: hidden; border: 1px solid var(--border); }
-  .bts-track { display: flex; transition: transform 0.35s ease; }
-  .bts-slide { flex: 0 0 100%; }
-  .bts-slide img {
-    width: 100%; height: 420px; object-fit: cover; display: block;
-    filter: saturate(0.82) sepia(0.08) contrast(0.96) brightness(1.02);
+  .bts-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: btsScroll 20s linear infinite;
+  }
+  .bts-track:hover { animation-play-state: paused; }
+
+  .bts-slide { flex-shrink: 0; height: 380px; border: 1px solid var(--border); overflow: hidden; }
+  .bts-slide img { height: 100%; width: auto; display: block; object-fit: cover; }
+
+  @keyframes btsScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
-  .bts-controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1.2rem; }
-  .bts-arrow {
-    width: 32px; height: 32px; border: 1px solid var(--border-strong); background: transparent;
-    display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text);
-    transition: border-color 0.2s, color 0.2s;
+  @media (prefers-reduced-motion: reduce) {
+    .bts-track { animation: none; }
   }
-  .bts-arrow:hover { border-color: var(--accent); color: var(--accent); }
-  .bts-arrow svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.6; }
-  .bts-counter { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--muted); min-width: 3.2rem; text-align: center; }
 
   /* in-page sub-nav with scroll-spy, sits just below the sticky main nav */
   .sub-nav {
@@ -235,22 +236,11 @@
     <div class="bts-header">
       <div class="section-label"><span>Behind the Scenes — APCA Fall Short</span></div>
     </div>
-    <div class="bts-carousel">
-      <div class="bts-track-wrap">
-        <div class="bts-track">
-          <div class="bts-slide"><img src="assets/bts-1.jpg" alt="Behind the scenes, part 1"></div>
-          <div class="bts-slide"><img src="assets/bts-2.jpg" alt="Behind the scenes, part 2"></div>
-        </div>
-      </div>
-      <div class="bts-controls">
-        <button class="bts-arrow" data-dir="-1" aria-label="Previous photo">
-          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <span class="bts-counter"><span class="bts-current">01</span> / <span class="bts-total">02</span></span>
-        <button class="bts-arrow" data-dir="1" aria-label="Next photo">
-          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
+    <div class="bts-track">
+      <div class="bts-slide"><img src="assets/bts-1.jpg" alt="Behind the scenes, part 1"></div>
+      <div class="bts-slide"><img src="assets/bts-2.jpg" alt="Behind the scenes, part 2"></div>
+      <div class="bts-slide" aria-hidden="true"><img src="assets/bts-1.jpg" alt=""></div>
+      <div class="bts-slide" aria-hidden="true"><img src="assets/bts-2.jpg" alt=""></div>
     </div>
   </section>
 

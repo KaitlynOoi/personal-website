@@ -32,20 +32,20 @@
   .eng-link:hover { border-color: var(--accent); color: var(--accent); }
   .eng-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.6; }
 
-  .skills-strip { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+  .skills-strip { display: flex; justify-content: center; gap: 2.75rem; flex-wrap: wrap; }
+  .skill-group { max-width: 220px; text-align: left; }
   .skill-label { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-  .skill-list { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; line-height: 1.8; }
+  .skill-list { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.02em; line-height: 1.75; }
 
   .projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
+    gap: 20px;
   }
 
   .project-card {
     background: var(--bg);
+    border: 1px solid var(--border);
     padding: 2.1rem 1.8rem;
     display: flex;
     flex-direction: column;
@@ -100,21 +100,21 @@
       </a>
     </div>
     <div class="skills-strip">
-      <div>
-        <p class="skill-label">Languages</p>
-        <p class="skill-list">C / C++<br>JavaScript<br>SQL</p>
-      </div>
-      <div>
-        <p class="skill-label">Web</p>
-        <p class="skill-list">React<br>Node.js / Express<br>HTML / CSS</p>
-      </div>
-      <div>
+      <div class="skill-group">
         <p class="skill-label">Hardware</p>
-        <p class="skill-list">Arduino<br>BLE / I&sup2;C<br>MAX30102 &middot; VL53L0X &middot; HTS221</p>
+        <p class="skill-list">FPGA, Microcontrollers, Digital Logic, FSM, SPI, UART, TCP/IP, DPI, SCPI, Soldering, KiCad, LTspice</p>
       </div>
-      <div>
-        <p class="skill-label">Tools</p>
-        <p class="skill-list">Docker<br>MySQL<br>Git</p>
+      <div class="skill-group">
+        <p class="skill-label">Software</p>
+        <p class="skill-list">React/Next.js, Node.js, RESTful APIs, MySQL, AWS, Docker, Git/GitHub, Jupyter, Google Cloud</p>
+      </div>
+      <div class="skill-group">
+        <p class="skill-label">Languages</p>
+        <p class="skill-list">Python, Java, C, C++, TypeScript/JavaScript, MATLAB, HTML/CSS, Verilog/SystemVerilog</p>
+      </div>
+      <div class="skill-group">
+        <p class="skill-label">Verification &amp; ML</p>
+        <p class="skill-list">QuestaSim, FPGA Testbenches, Waveform Analysis, TinyML, Neural Networks</p>
       </div>
     </div>
   </div>
