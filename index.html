@@ -45,15 +45,6 @@
     filter: saturate(0.82) sepia(0.08) contrast(0.96) brightness(1.02);
   }
 
-  .photo-placeholder {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 0.5rem;
-    color: var(--muted-2);
-  }
-  .photo-placeholder svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.3; opacity: 0.7; }
-  .photo-placeholder span { font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 0 0.5rem; }
-
   /* ---- intro copy ---- */
   .intro-label { font-size: 0.65rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
 
@@ -97,20 +88,12 @@
 <main class="landing">
   <div class="landing-grid">
 
-    <!-- Once you have photos, drop them in assets/photos/ and swap the
-         .photo-placeholder div inside a .photo-frame for an <img src="assets/photos/....jpg"> -->
     <div class="photos">
       <div class="photo-frame">
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
-          <span>photo-1.jpg</span>
-        </div>
+        <img src="assets/photos/photo-1.jpg" alt="Kaitlyn at a USC SAE awards ceremony">
       </div>
       <div class="photo-frame">
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
-          <span>photo-2.jpg</span>
-        </div>
+        <img src="assets/photos/photo-2.jpg" alt="Kaitlyn on set holding a clapperboard">
       </div>
     </div>
 
