@@ -138,11 +138,11 @@ footer.site-footer {
   position: relative;
   z-index: 2;
   padding: 1.8rem 3rem;
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.5rem;
 }
 
 footer.site-footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: var(--muted); }
@@ -151,7 +151,8 @@ footer.site-footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: var(--m
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   color: var(--muted);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   transition: color 0.2s;
 }
 .footer-email:hover { color: var(--accent); }
